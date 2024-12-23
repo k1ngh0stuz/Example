@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+
+{% block main %}
+
+<div class="card">
+    <div class="row g-0">
+        <div class="col-md-4">
+            {% if article.photo %}
+            <img src="{{ article.photo.url }}" class="img-fluid rounded-start" alt="...">
+            {% else %}
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk3UgM3iwgnkhNoQm3NuarG41NsSprg7iSAg&s" class="img-fluid rounded-start" alt="...">
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{ article.title }}</h5>
+                <p class="card-text">{{ article.content|linebreaks }}</p>
+                <p class="card-text"><small class="text-body-secondary">
+                    Дата создания: {{ article.created_at }}
+                </small>
+                </p>
+            </div>
+            <div>
+                <a href="{% url 'article_update' article.pk %}" class="btn btn-warning">Изменить</a>
+                <a href="{% url 'article_delete' article.pk %}" class="btn btn-danger">Удалить</a>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock main %}

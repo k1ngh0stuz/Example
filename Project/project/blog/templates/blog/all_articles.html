@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load blog_tags %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+
+{% block main %}
+<h1 class="mt-5 mb-5">Список новостей</h1>
+
+<div class="d-flex justify-content-between">
+
+    <div class="col-3">
+        {% get_all_categories as categories %}
+        {% include 'blog/components/_sitebar.html' %}
+    </div>
+
+
+    <div class="col-8">
+        {% for article in articles %}
+        {% include 'blog/components/_card.html' %}
+        {% endfor %}
+
+        {% include 'components/_paginator.html' %}
+
+    </div>
+
+</div>
+
+{% endblock main %}

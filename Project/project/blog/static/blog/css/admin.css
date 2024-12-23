@@ -1,0 +1,12 @@
+body {
+    background: black;
+}
+
+.dashboard #content {
+    width: 1200px;
+}
+
+#content h1 {
+    font-size: 40px;
+    color: darkred;
+}
